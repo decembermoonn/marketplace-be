@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  mkt_postgres:
+    image: "postgres:16beta1-alpine3.18"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./data/mkt-postgres:/var/lib/postgresql/data
+  mkt_keycloak:
+    image: jboss/keycloak:latest
+    ports:
+      - "8075:8080"
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    volumes:
+      - ./data/mkt-keycloak:/opt/jboss/keycloak/standalone/data
