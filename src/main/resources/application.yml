@@ -11,3 +11,12 @@ spring:
         jwt:
           issuer-uri: http://localhost:8075/auth/realms/Marketplace
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+keycloak:
+  admin:
+    username: admin
+    password: admin
+    api-uri: http://localhost:8075/auth/admin/realms/Marketplace
+  client:
+    secret: IIRq3skUqySOG3MpBQL8nlSpI4ri4dgr
+    id: marketplace
+  token-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/token
